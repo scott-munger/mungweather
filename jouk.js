@@ -1,102 +1,67 @@
-
 let departureCoords = null;
 let arrivalCoords = null;
+
 document.querySelector('#btn').addEventListener('click', function (event) {
     // Empêche le formulaire de se soumettre normalement
-    event.preventDefault();
-    
+    event.preventDefault(); 
+
     // Récupère la valeur de l'input
-    let vill = document.querySelector('#departure').value;
-    
-    const apical = function(vill) {
-        // Remplacez 'your_api_key' par votre clé API réelle
-        const apiKey = '5b3ce3597851110001cf624824bf8bf1251e4100830d7bd5d588134b';
-        // URL pour la recherche géographique
-        const url = `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(vill)}`;
+    let fromCity = document.querySelector('#departure').value;
+    let toCity = document.querySelector('#arrival').value;
 
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Erreur HTTP! Statut: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Affiche les données dans la console
-                console.log('Données:', data);
-                // Assure que les données existent avant de les utiliser
-                if (data.features.length > 0) {
-                    departureCoords = data.features[0].geometry.coordinates;
-                    document.querySelector('#continent-departure').innerHTML = data.features[0].properties.continent;
-                    document.querySelector('#country-departure').innerHTML = data.features[0].properties.country;
-                    document.querySelector('#long-lat-departure').innerHTML = data.features[0].geometry.coordinates;
-                } else {
-                    document.querySelector('#continent-departure').innerHTML = "Aucune donnée trouvée";
-                    document.querySelector('#country-departure').innerHTML = "Aucune donnée trouvée";
-                    document.querySelector('#long-lat-departure').innerHTML = "Aucune donnée trouvée";
-                
-                }
-            })
-            .catch(err => {
-                console.error('Erreur : ' + err);
-            });
-    };
-
-    // Appel de la fonction avec la valeur de l'input
-    apical(vill);
-});
-document.querySelector('#btn').addEventListener('click', function (event) {
-    // Empêche le formulaire de se soumettre normalement
-    event.preventDefault();
-    
-    // Récupère la valeur de l'input
-    let vil = document.querySelector('#arrival').value;
-    
-    const apicall = function(vil) {
-        // Remplacez 'your_api_key' par votre clé API réelle
-        const apiKey = '5b3ce3597851110001cf624824bf8bf1251e4100830d7bd5d588134b';
-        // URL pour la recherche géographique
-        const url = `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(vil)}`;
-
-        fetch(url)
-            .then(response => {
-                if (!response.ok) {
-                    throw new Error(`Erreur HTTP! Statut: ${response.status}`);
-                }
-                return response.json();
-            })
-            .then(data => {
-                // Affiche les données dans la console
-                console.log('Données:', data);
-                // Assure que les données existent avant de les utiliser
-                if (data.features.length > 0) {
-                    arrivalCoords = data.features[0].geometry.coordinates;
-                    document.querySelector('#continent-arrival').innerHTML = data.features[0].properties.continent;
-                    document.querySelector('#country-arrival').innerHTML = data.features[0].properties.country;
-                    document.querySelector('#long-lat-arrival').innerHTML = data.features[0].geometry.coordinates;
-                } else {
-                    document.querySelector('#continent-arrival').innerHTML = "Aucune donnée trouvée";
-                    document.querySelector('#country-arrival').innerHTML = "Aucune donnée trouvée";
-                    document.querySelector('#long-lat-arrival').innerHTML = "Aucune donnée trouvée";
-                }
-            })
-            .catch(err => {
-                console.error('Erreur : ' + err);
-            });
-    };
-
-    // Appel de la fonction avec la valeur de l'input
-    apicall(vil);
-   
+    fetchCityData(fromCity, 'departure');
+    fetchCityData(toCity, 'arrival');
 });
 
+function fetchCityData(city, type) {
+    const apiKey = '5b3ce3597851110001cf624824bf8bf1251e4100830d7bd5d588134b';
 
+    // URL pour la recherche géographique
+    const url = `https://api.openrouteservice.org/geocode/search?api_key=${apiKey}&text=${encodeURIComponent(city)}`;
 
+    fetch(url)
+        .then(response => {
+            if (!response.ok) {
+                throw new Error(`Erreur HTTP! Statut: ${response.status}`);
+            }
+            return response.json();
+        })
+        .then(data => {
+            // Affiche les données dans la console
+            console.log('Données:', data);
+            
+            if (data.features.length > 0) {
+                const coords = data.features[0].geometry.coordinates;
+                const continent = data.features[0].properties.continent;
+                const country = data.features[0].properties.country;
 
-//2eme requete
+                if (type === 'departure') {
+                    departureCoords = coords;
+                    document.querySelector('#continent-departure').innerText = continent;
+                    document.querySelector('#country-departure').innerText = country;
+                    document.querySelector('#long-lat-departure').innerText = coords.join(', ');
+                } else {
+                    arrivalCoords = coords;
+                    document.querySelector('#continent-arrival').innerText = continent;
+                    document.querySelector('#country-arrival').innerText = country;
+                    document.querySelector('#long-lat-arrival').innerText = coords.join(', ');
+                }
+
+                if (departureCoords && arrivalCoords) {
+                    calculateRoute(departureCoords, arrivalCoords);
+                }
+            } else {
+                console.log("Aucune donnée trouvée pour", city);
+            }
+        })
+        .catch(e => {
+            console.error('Erreur :', e);
+        });
+}
 
 function calculateRoute(departureCoords, arrivalCoords) {
     const apiKey = '5b3ce3597851110001cf624824bf8bf1251e4100830d7bd5d588134b';
+
    // https://api.openrouteservice.org/v2/directions/driving-car?api_key=your-api-key&start=8.681495,49.41461&end=8.687872,49.420318
     const url = `https://api.openrouteservice.org/v2/directions/driving-car?api_key=${apiKey}&start=${departureCoords.join(',')}&end=${arrivalCoords.join(',')}`;
 
@@ -109,18 +74,15 @@ function calculateRoute(departureCoords, arrivalCoords) {
         })
         .then(data => {
             console.log('Données de route:', data);
-
+            
             // Affichage des informations du trajet
           //  document.querySelector('#distance').innerHTML = data.features[0].properties.segments[0].distance;
           //  document.querySelector('#duration').innerHTML = data.features[0].properties.segments[0].duration;
 
             // Affichage du trajet sur une carte
-            displayRouteOnMap(data);
+            // displayRouteOnMap(data);
         })
         .catch(err => {
-            console.error('Erreur : ' + err);
+            console.error('Erreur :', err);
         });
 }
-calculateRoute(8.681495,49.41461, 8.687872,49.420318);
-
-
