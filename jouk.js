@@ -82,7 +82,7 @@ function calculateRoute(departureCoords, arrivalCoords) {
             // Affichage du trajet sur une carte
             // displayRouteOnMap(data);
         })
-        .catch(err => {
-            console.error('Erreur :', err);
+        .catch(e => {
+            console.error('Erreur :', e);
         });
 }
