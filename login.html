@@ -17,9 +17,10 @@
             <ul>
                 <li><a href="index.html">Acceuil</a></li>
                 <li><a href="about.html">A Propos De Nous</a></li>
-                <li><a href="destinations.html">Destinations</a></li>  
+                <li><a href="destinations.html">Destinations</a></li>
                 <li><a href="signup.html">Sign Up</a></li>   
-                <li><a href="login.html">Login</a></li>   
+                <li><a href="login.html">Login</a></li> 
+                    
             </ul>
             <h2 onclick="goback()" id="close-btn">X</h2>
         </div>
@@ -35,35 +36,33 @@
     
     </header>
 <body>
-
-    <div class="about-us">
-        <div class="container-about-us">
-            <div class="about-image">
-                <img class="first-image-about" src="images/haiti_haiti--ile-a-rat_1698424009.webp">
-                <img class="second-image-about" src="images/haiti_haiti--cascade-saut-d-eau_1700659724.webp">
-                <img class="third-image-about" src="images/haiti-cote-des-arcadins-montouis-1715397794.webp">
-                <img class="fourth-image-about" src="images/haiti_haiti--parc-national-macaya_1698424296.webp">
-                
-            </div>
-
-            <div class="about-text">
-                <h2>A Propos De MungWeeather</h2>
-                <p>
-                Bienvenue sur Mungweather, votre source incontournable pour des prévisions météorologiques fiables et détaillées. Nous nous engageons à vous fournir les informations les plus précises et actuelles sur le temps, où que vous soyez.</br>
-                
-                <span> Mission</span></br>
-                Chez MungWeather, notre mission est de vous aider à planifier votre journée avec confiance grâce à des prévisions météorologiques précises et adaptées à vos besoins. Nous savons que la météo peut influencer vos décisions quotidiennes, de la planification de vos activités de plein air à la gestion de vos déplacements. C'est pourquoi nous mettons tout en œuvre pour vous offrir des prévisions claires, fiables et en temps réel.</br>
-                
-                <span>Ce Que Nous Offrons</span></br>
-                Prévisions Localisées : Obtenez des prévisions météorologiques spécifiques à votre région, avec des détails sur la température, les précipitations, le vent, et plus encore.
-                Alertes en Temps Réel : Recevez des alertes instantanées pour les conditions météorologiques extrêmes ou les changements importants afin de vous préparer efficacement.
-                Cartes Interactives : Visualisez les données météorologiques à l'aide de cartes interactives et de graphiques intuitifs pour une compréhension facile des tendances.
-                Conseils Personnalisés : Profitez de recommandations pratiques pour adapter vos activités quotidiennes en fonction des conditions météorologiques prévues.
-                </p>
-            </div>
+  
+    <form id="form" action="" method="post">
+        <div class="imgcontainer">
+        
         </div>
+      
+        <div class="container">
+          <label for="uname"><b>Username</b></label>
+          <input class="input-champ" type="text" placeholder="Enter Username" name="uname" required>
+      
+          <label for="psw"><b>Password</b></label>
+          <input  class="input-champ" type="password" placeholder="Enter Password" name="psw" required>
+      
+          <button class="btn-registration" type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+      
+        <div class="container" style="background-color:#f1f1f1">
+          <button onclick="goback()" type="button" class="cancelbtn">Cancel</button>
+          <span class="psw">Forgot <a href="#">password?</a></span>
+        </div>
+      </form>
+      
 
-    </div>
+
    
    <script>
     function goback() {

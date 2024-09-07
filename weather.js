@@ -1,82 +1,93 @@
-document.getElementById('weather-form').addEventListener('submit', function(event) {
-    event.preventDefault();
-    
-    const city = document.getElementById('city').value;
-    const apiKey = '8b980e2f490ed06ed50b35751e55579c';  // Remplacez par votre clé API
+const APIKEY = 'd347f273fd96dc8cae15dca424ef7c15';
+/* appell a l'api openweather avec vill en parametre de fonction*/
+let apicall = function(city){
+    let url = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${APIKEY}&units=metric&lang=fr`;
 
-    // Obtenez les coordonnées géographiques de la ville
-    fetch(`http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`)
+fetch(url).then((response) =>
+    response.json().then((data) => {
+        console.log(data);
+        document.querySelector('#city').innerHTML = "<h2 id='h2prevision'>Ville</h2>" + data.name;
+        document.querySelector('#humidity').innerHTML = "<h2 id='h2prevision'>Humidité</h2>" + data.main.humidity+'%';
+        document.querySelector('#temperature').innerHTML = "<h2 id='h2prevision'>Température</h2>" + data.main.temp ;
+        document.querySelector('#wind').innerHTML = "<h2 id='h2prevision'>Vitesse Du Vent</h2>"  + data.wind.speed + 'km/h';
+    })
+)
+.catch((err) => console.log('Erreur : ' + err));
+}
+
+/* ecouteur */
+document.querySelector('form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    let ville = document.querySelector('#input-formulaire').value;
+
+    apicall(ville);
+
+});
+/* appel par defaut au chargement de la page*/
+apicall('miragoane');
+
+
+
+// Votre clé API OpenWeatherMap
+const apiKey = 'd347f273fd96dc8cae15dca424ef7c15'; // Remplacez par votre clé API
+
+// Fonction pour obtenir les coordonnées géographiques
+function getGeolocation() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(fetchWeatherData, handleError);
+    } else {
+        document.getElementById('weather-info').textContent = 'La géolocalisation n\'est pas supportée par ce navigateur.';
+    }
+}
+
+// Fonction pour traiter les erreurs de géolocalisation
+function handleError(error) {
+   /* document.getElementById('weather-info').textContent = 'Erreur de géolocalisation: ' + error.message;*/
+}
+
+// Fonction pour récupérer les données météo
+function fetchWeatherData(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+
+    const url = `https://api.openweathermap.org/data/2.5/weather?lat=${latitude}&lon=${longitude}&appid=${apiKey}&units=metric&lang=fr`;
+
+    fetch(url)
         .then(response => response.json())
         .then(data => {
-            const lat = data.coord.lat;
-            const lon = data.coord.lon;
-            const forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&exclude=hourly,minutely&units=metric&appid=${apiKey}`;
+            const cityName = data.name; // Nom de la ville
+            document.getElementById('weather-info').textContent = `zone: ${cityName}, Température: ${data.main.temp}°C`;
+        })
+       /* .catch(error => {
+            document.getElementById('weather-info').textContent = 'Erreur lors de l\'appel à l\'API météo: ' + error.message;
+        });*/
+}
 
-            return fetch(forecastUrl);
-        })
-        .then(response => response.json())
-        .then(data => {
-            displayWeather(data);
-        })
-        .catch(error => {
-            console.error('Erreur:', error);
-            document.getElementById('weatherData').innerHTML = 'Erreur lors de la récupération des données.';
-        });
+// Appeler la fonction pour obtenir les coordonnées et les données météo
+getGeolocation();
+
+// Menu mobile
+
+
+/*const sideMenu = document.querySelector('menu');
+const menuBar = document.querySelector('menu-bar');
+const closeBtn = document.querySelector('#close-btn');
+
+menuBar.style.addEventListener('click',()=> {
+    sideMenu.style.display = 'block';
 });
 
-function displayWeather(data) {
-    const windContainer = document.getElementById('wind');
-    const precipitationContainer = document.getElementById('precipitations');
-    const temperatureContainer = document.getElementById('temperature');
-    const descriptionContainer = document.getElementById('description');
+closeBtn.style.addEventListener('click',()=>{
+    sideMenu.style.display = 'none';
+});*/
 
-    const daily = data.daily;
-
-    let windHtml = '<h2>Vitesse du Vent</h2>';
-    let precipitationHtml = '<h2>Précipitations</h2>';
-    let temperatureHtml = '<h2>Température</h2>';
-    let descriptionHtml = '<h2>Description</h2>';
-
-    daily.forEach((day, index) => {
-        if (index < 7) {  // Limiter à 7 jours
-            const date = new Date(day.dt * 1000).toLocaleDateString();
-            const windSpeed = day.wind_speed;
-            const precipitation = day.pop * 100;  // `pop` est la probabilité de précipitations (0-1)
-            const temp = day.temp.day;
-            const description = day.weather[0].description;
-
-            windHtml += `
-                <div>
-                    <h3>${date}</h3>
-                    <p>Vitesse du vent : ${windSpeed} m/s</p>
-                </div>
-            `;
-
-            precipitationHtml += `
-                <div>
-                    <h3>${date}</h3>
-                    <p>Précipitations : ${precipitation.toFixed(2)} %</p>
-                </div>
-            `;
-
-            temperatureHtml += `
-                <div>
-                    <h3>${date}</h3>
-                    <p>Température : ${temp} °C</p>
-                </div>
-            `;
-
-            descriptionHtml += `
-                <div>
-                    <h3>${date}</h3>
-                    <p>Conditions : ${description}</p>
-                </div>
-            `;
-        }
-    });
-
-    windContainer.innerHTML = windHtml;
-    precipitationContainer.innerHTML = precipitationHtml;
-    temperatureContainer.innerHTML = temperatureHtml;
-    descriptionContainer.innerHTML = descriptionHtml;
+function showMenu(){
+    var el = document.getElementById('menu');
+    if(document.getElementById('menu').style.display == 'block'){
+        el.style.display = 'none';
+    }else{
+        el.style.display = 'block';
+    }
 }
+
+
