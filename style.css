@@ -1,0 +1,1211 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Jost:ital,wght@0,100..900;1,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&family=Noto+Serif:ital,wght@0,100..900;1,100..900&display=swap');
+#map{
+ margin-left: 10%;
+ margin-top: 10%;
+ margin-right: 10%;
+}
+
+*{
+    
+     margin: 0px;
+     padding: 0px;
+     font-family: "Jost", sans-serif;
+}
+
+.header{
+    width: 100%;
+    height: 70px;
+    background: blue;
+  
+
+
+}
+#close-btn{
+    display: none;
+}
+#h2prevision{
+    font-size: 30px;
+    text-align: center;
+    margin: 0px;
+    padding: 0px;
+}
+
+#weather-info{
+    color: #fff200;
+    position: absolute;
+    font-size: 16px;
+    right: 5%;
+    top:20px;
+    z-index: 800;
+
+}
+.logo{
+    width: 140px;
+    margin-left: 50px;
+    margin-top: 20px;
+    float: left;
+}
+#menu{
+    float: left;
+    z-index: 1000;
+}
+#menu p{
+   position: absolute;
+   top:20px;
+   right: 90px;
+   color: white;
+}
+
+#menu  ul{
+    margin-left: 10px;
+    padding-top:20px;
+
+}
+#menu ul li{
+    display: inline;
+
+}
+#menu ul li a{
+    text-decoration: none;
+    color: white;
+    margin-left: 50px;
+      
+}
+#menu ul li a:hover{
+    color: #fff200;
+    text-decoration: underline;
+}
+
+
+.carousel-item{
+    position: relative;
+}
+.carousel-item img{
+    height: 600px;
+    object-fit: cover;
+
+}
+.carousel-caption{
+    position: absolute;
+    top: 200px;
+    background-color: rgba(40, 41, 38, 0.5);
+    border-radius: 15px;
+    height: 500px;
+    padding-top: 100px;
+   
+
+}
+.carousel-caption h1{
+    font-weight: bold;
+    color: #a6ff00;
+
+}
+.carousel-caption p{
+    color: #ffffff;
+    margin-top: 40px;
+    border-bottom: 1px solid white;
+    font-weight: 400;
+    
+}
+
+.prevision-section{
+    width: 100%;
+    height: 900px;
+    float: left;
+    background: rgb(0, 0, 62);
+}
+.prevision-section h2{
+    color: #fff200;
+    text-align: left;
+    margin-left:20%;
+    margin-top: 90px;
+    font-size: 70px;
+    margin-bottom: 60px;
+}
+.prevision-section span{
+    color: white;
+}
+.container-previsions{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.container-previsions-item div{
+    width: 300px;
+    height: 100px;
+    background: blue;
+    border-radius: 15px;
+    margin-top: 10px;
+    color: white;
+    text-align: center;
+   
+    
+}
+#city, #humidity{
+    height: 150px;
+    padding: 12%;
+    
+}
+#temperature, #wind{
+    height: 300px;
+    padding: 35% 0px;
+    
+}
+
+#input-form-city input{
+    margin-left: 25%;
+    padding: 10px 200px;
+    border: none;
+    border-radius: 10px;
+    margin-top: 60px;
+    
+}
+#btn1{
+    padding: 10px 20px;
+    background: #fff200;
+    border: none;
+    border-radius: 10px;
+ 
+}
+
+.city-information{
+    width: 100%;
+    min-height: 700px;
+    background: white;
+    float: left;
+    padding-bottom: 50px;
+}
+.city-information h1{
+    text-align: right;
+    margin-right: 10%;
+    margin-top: 90px;
+    font-weight: 900;
+    color: blue;
+    font-size: 70px;
+    font-weight: 300;
+    line-height: 80px;
+}
+.city-information span{
+   
+    font-size: 100px;
+    font-weight:900;
+    
+
+}
+
+.container-city-information{
+    display: flex;
+    justify-content: space-evenly;
+   
+    flex-wrap: wrap;
+}
+.container-item-infomation{
+    width: 300px;
+    max-height: 450px;
+    background: white;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.2);
+    border-radius: 15px;
+    margin-top: 60px;
+}
+.container-city-information img{
+    width: 92%;
+    margin-left: 12px;
+    margin-right: 12px;
+    margin-top: 10px;
+    border-radius: 15px;
+
+}
+.container-city-information h6{
+    margin-left: 10px;
+    margin-top: 10px;
+    margin-right: 10px;
+}
+.container-city-information p{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 75px;
+    text-align: justify;
+
+}
+
+.hot-zone{
+    width: 100%;
+    height: 800px;
+    background: rgb(240, 240, 247);
+    float: left;
+   
+   
+}
+.hot-zone h1{
+    margin-top: 100px;
+    margin-left: 90px;
+    font-weight: 300;
+    color: rgb(0, 0, 62);
+    font-size: 70px;
+}
+.hot-zone h5{
+    text-align: left;
+    margin-left:3%;
+    margin-right:10%;
+    margin-top: 80px;
+    border-left: 10px solid rgb(0, 0, 62);
+    padding-left: 5px;
+}
+.container-hot-description{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: space-around;
+}
+
+.container-hot-zone{
+    width: 300px;
+    height:300px;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.3);
+    margin-top: 50px;
+  
+   
+    
+}
+
+.container-hot-zone p{
+    position: absolute;
+    padding: 5px 5px;
+    margin-left: 8px;
+    margin-top: 10px;
+    margin-right: 150px;
+    background-color:#fff200 ;
+    text-align: center;
+    font-size: 11px;
+
+}
+.container-hot-zone h6{
+   position: absolute;
+    color: #ffffff;
+    width: 20%;
+    margin-top: 100px;
+    margin-left: 10px;
+    margin-right: 5%;
+    z-index: 999;
+    text-align: justify;
+}
+.container-hot-zone img{
+    width: 100%;
+    height: 300px;
+    border-radius: 15px;
+    object-fit: cover;
+
+}
+
+
+
+.about-us{
+    width: 100%;
+    height: 800px;
+    background: white;
+    float: left;
+
+}
+.container-about-us{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 10px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+
+}
+.about-image{
+    width: 100%;
+    margin-top: 10%;
+    margin-left: 4%;
+}
+.first-image-about{
+    width: 350px;
+    border: 5px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.3);
+    margin-top: 10px;
+
+}
+.second-image-about{
+    width: 250px;
+    border: 5px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.3);
+    margin-top: 20px;
+
+}
+.third-image-about{
+    width: 300px;
+    border: 5px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.3);
+    margin-top: 10px;
+
+}
+.fourth-image-about{
+    width: 300px;
+    border: 5px solid white;
+    border-radius: 15px;
+    box-shadow: 0px 0px 15px 0px rgba(40, 41, 38, 0.3);
+    margin-top: 15px;
+
+}
+.about-text{
+    width: 90%;
+    margin-top: 10%;
+    margin-right: 10%;
+    text-align: justify;
+}
+.about-text h2{
+    color: rgb(0, 0, 62);
+}
+.about-text span{
+    font-weight: 700;
+    font-size: 18px;
+    color: rgb(0, 0, 62);
+}
+
+.destinations{
+    width: 100%;
+    height: 700px;
+    background: #ffffff;
+}
+.form{
+    width:80%;
+    min-height: 200px;
+    background: rgb(0, 0, 62);
+    margin-top: 20%;
+    margin-left: 10%;
+    border-radius: 15px;
+    box-shadow: 0px 0px 20px 0px rgba(40, 41, 38, 0.3);
+
+}
+.btn-position{
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    border: none;
+    background: #fff200;
+    margin-top: 10px;
+    float: right;
+    margin-top: 4%;
+    margin-right: 10%;
+
+}
+.input{
+    border: none;
+    padding: 10px 90px;
+    float: left;
+    border-radius: 15px;
+    display: inline;
+    margin-left: 5%;
+    margin-top: 8%;
+}
+.label1{
+    position: absolute;
+    left: 21%;
+    color: white;
+    margin-top: 40px;
+    font-size: 18px;
+}
+.label2{
+    position: absolute;
+    left: 48%;
+    color: white;
+    margin-top: 40px;
+    font-size: 18px;
+}
+#btn{
+   
+    padding: 20px;
+    border-radius: 50%;
+    border: none;
+    background: #fff200;
+    margin-top: 7%;
+    margin-left: 50px;
+  
+
+
+}
+#table {
+    width: 80%;
+    margin-top: 50px;
+    border: 1 px solid black;
+    margin: auto;
+    margin-top: 50px;
+    border: 1px solid rgb(0, 0, 62);
+    border-collapse: collapse;
+   
+
+}
+#th{
+    background-color: rgb(0, 0, 62);
+    padding: 20px;
+    color: #ffffff;
+    
+    
+}
+#table td{
+    padding: 5px;
+    border: 1px solid rgb(0, 0, 62);
+}
+#table select{
+    border: none;
+
+}
+
+.footer{
+    width: 100%;
+    height: 400px;
+    background: rgb(0, 0, 62);
+    float: left;
+
+   
+}
+.footer h6{
+    color: white;
+    text-align:center;
+    margin-top: 10px;
+}
+.footer-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    border-bottom: 2px solid white;
+   
+
+}
+.first-footer-part h4{
+    color: white;
+    margin-left: 20px;
+    font-weight: bold;
+    margin-top: 20%;
+    margin-bottom: 20px;
+    margin-left: 20%;
+    
+}
+
+.first-footer-part p{
+    color: white;
+    margin-left: 20px;
+    line-height: 20px;
+    margin-left: 20%;
+    font-size: 14px;
+
+    
+
+}
+.second-footer-part, .third-footer-part{
+    color: white;
+    margin-left: 20px;
+    margin-top: 10%;
+    margin-bottom: 90px;
+}
+.second-footer-part a{
+    text-decoration: none;
+    color: white;
+}
+.second-footer-part p, .third-footer-part p{
+   padding-top: 25px;
+}
+
+
+/* login */
+#form{
+    border: 3px solid #f1f1f1;
+    width: 40%;
+    margin: auto;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    border-radius: 15px;
+
+}
+.input-champ{
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border-radius: 10px;
+
+}
+.btn-registration{
+    background-color: rgb(0, 0, 62);
+    color: white;
+    padding: 10px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 10px;
+    
+}
+
+.cancelbtn {
+    width: auto;
+    padding: 6px 18px;
+    background-color: #fff200;
+    border: none;
+    border-radius: 10px;
+  }
+  
+  /* Center the avatar image inside this container */
+  .imgcontainer {
+    text-align: center;
+    margin: 24px 0 12px 0;
+  }
+  
+  /* Avatar image */
+  img.avatar {
+    width: 40%;
+    border-radius: 50%;
+  }
+  
+  /* Add padding to containers */
+  .container {
+    padding: 16px;
+  }
+  
+  /* The "Forgot password" text */
+  span.psw {
+    float: right;
+    padding-top: 16px;
+  }
+  
+  /* Change styles for span and cancel button on extra small screens */
+  @media screen and (max-width: 300px) {
+    span.psw {
+      display: block;
+      float: none;
+    }
+    .cancelbtn {
+      width: 100%;
+    }
+  }
+
+  /* sign up*/
+  /* Add padding to container elements */
+.container {
+    padding: 16px;
+  }
+  
+  /* Clear floats */
+  .clearfix::after {
+    content: "";
+    clear: both;
+    display: table;
+  }
+  
+  /* Change styles for cancel button and signup button on extra small screens */
+  @media screen and (max-width: 300px) {
+    .cancelbtn, .signupbtn {
+      width: 100%;
+    }
+  }
+
+  /* Dashboard*/
+  #dashboard-menu{
+    float: left;
+    background: rgb(0, 0, 62);
+    width: 20%;
+    height: 100vh;
+  }
+  #dashboard-menu ul{
+    display: block;
+    margin-top: 60px;
+    margin-left: 20px;
+  }
+  #dashboard-menu ul li{
+    font-weight: 600;
+    color: white;
+    line-height: 60px;
+    list-style: none;
+    font-size: 16px;
+
+  }
+  #dashboard-menu p{
+    color: white;
+    margin-top: 60px;
+    margin-left: 50px;
+    font-size: 18px;
+    font-weight: 600;
+  }
+
+  #main-dash h1{
+    text-align: center;
+   padding-top: 20%;
+    font-weight: 900;
+
+  }
+
+@media only screen and (max-width: 320px) and (orientation: portrait){
+    .input{
+        width: 85%;
+        padding: 10px 10px;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+
+}
+
+@media only screen and (max-width: 600px) and (orientation: portrait){
+  
+    .carousel-item{
+        height: 250px;
+        object-fit: cover;
+    }
+    .carousel-caption{
+        position: absolute;
+        top:85px;
+        background-color: rgba(40, 41, 38, 0.5);
+        border-radius: 15px;
+        height: 300px;
+        padding-top: 100px;
+      
+
+    
+    }
+    .carousel-item img{
+        object-fit: cover;
+        height: 250px;
+    }
+    .carousel-caption h1{
+        font-size: 16px;
+    }
+    .carousel-caption p{
+        margin-top: 10px;
+        font-size: 12px;
+        padding-bottom: 10px;
+       
+    }
+    .carousel-caption h1{
+        margin-top: 10px;
+    }
+    #menu{
+        display: none;
+        position: fixed;
+        background:rgb(0, 0, 62);
+        height: 100%;
+        width: 96%;
+        top: 0;
+        right: 0px;
+        left: 0;
+        position: absolute;
+        z-index: 1000;
+        transition: transform 0.3s ease-in-out;
+        
+    }
+    #close-btn{
+        color: white;
+        position: absolute;
+        top: 5%;
+        left: 80%;
+        width: 50px;
+        height: 50px;
+        border: 2px solid white;
+        border-radius: 50%;
+        padding: 8px 15px;
+        cursor: pointer;
+        display: block;
+    }
+    #menu ul{
+     
+       display: flex;
+       flex-direction: column;
+       padding: 10px;
+       margin: 0;
+       margin-top: 100px;
+        
+    }
+    #menu  li {
+        display: block;
+        font-size: 20px;
+
+    }
+    
+    #menu a{
+        display: block;
+        margin-top: 50px;
+    }
+    .logo{
+        margin-left: 5%;
+        width: 100px;
+        margin-top: 25px;
+        
+    }
+    #weather-info{
+        font-size: 8px;
+        right: 22%;
+        top:28px;
+        z-index: 999;
+    
+    }
+    .menu-bar{
+        width: 40px;
+        height: 40px;
+        float: right;
+        margin-right: 5%;
+        margin-top: 4%;
+        
+    }
+ 
+    .menu-bar div{
+        height: 5px;
+        background: rgb(255, 255, 255);
+        margin-top: 5px;
+        border-radius: 2px;
+      
+    
+
+    }
+    .prevision-section{
+        height: 1500px;
+       
+    }
+    .prevision-section h2{
+        margin-left: 10%;
+        margin-top: 60px;
+        font-size: 40px;
+        margin-bottom: 60px;
+    }
+    .container-previsions{
+        width: 80%;
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin-left: 13%;
+    }
+    .container-previsions-item div{
+      
+       
+       float: left;
+       margin-left: 0px;
+        
+    }
+    #input-form-city input{
+        padding: 10px 20px;
+        margin-left:7%;
+    }
+ 
+    .city-information h1, .city-information span{
+       font-size: 26px;
+       line-height: 26px;
+    }
+    .hot-zone{
+        width: 100%;
+        height: 2300px;
+    }
+  
+    .hot-zone h1{
+        margin-top: 100px;
+        margin-left: 40px;
+    
+    }
+    .container-hot-zone h6{
+        width: 65%;
+        margin-top: 20%;
+        
+     
+    }
+    /* about us */
+    .about-us{
+        width: 90%;
+        min-height: 1400px;
+    }
+    .container-about-us{
+        grid-template-columns: repeat(1,1fr);
+    }
+    .first-image-about{
+        width: 160px;
+        border: 3px solid white;
+
+    }
+    .second-image-about{
+        width: 140px;
+        margin-top: 10px;
+        border: 3px solid white;
+     
+    
+    }
+    .third-image-about{
+        width: 150px;
+        border: 3px solid white;
+      
+    
+    }
+    .fourth-image-about{
+        width: 160px;
+        border: 3px solid white;
+     
+    
+    }
+    .about-image{
+        margin-left: 6%;
+    }
+    .about-text{
+        width: 100%;
+        margin-left: 5%;
+    }
+      /* destinations */
+    .destinations{
+        height: 800px;
+    }
+    .input{
+        padding: 10px 50px;
+        margin-left: 7%;
+      
+    }
+    #btn{
+   
+      float: left;
+      margin-left: 10%;
+     
+
+    }
+    .btn-position{
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        top: 54%;
+        left: 62%;
+
+       
+    
+    }
+    .form{
+        height: 250px;
+        position: relative;
+    }
+    .label1{
+        left: 36%;
+        margin-top: 5px;
+   
+        font-size: 13px;
+        position: absolute;
+    }
+    .label2{
+       left:37%;
+      
+        color: white;
+        font-size: 13px;
+        top:12%;
+    }
+  
+    .footer{
+        height: 750px;
+        margin-top: 30px;
+    }
+    .footer-container{
+        display: grid;
+        grid-template-columns: repeat(1, 1fr);
+        border-bottom: 2px solid white;
+
+    }
+
+    .first-footer-part h4{
+        margin-left: 20px;
+        font-weight: bold;
+        margin-top: 20%;
+        margin-bottom: 20px;
+        margin-left: 20%;
+        
+    }
+    
+    .first-footer-part p{
+    
+        margin-left: 20%;
+        line-height: 16px;
+        margin-left: 20%;
+
+        
+    
+    }
+    .second-footer-part, .third-footer-part{
+        color: white;
+        margin-left: 20%;
+        margin-top: 0%;
+        margin-bottom: 30px;
+    }
+
+    /* login*/
+    #form{
+        width: 80%;
+    }
+  
+}
+
+/* Styles pour les tablettes et iPads */
+@media only screen and (min-width: 700px) and (max-width: 1024px) {
+
+    /* Carousel */
+    .carousel-item {
+        height: 350px;
+        object-fit: cover;
+    }
+
+    .carousel-caption {
+        position: absolute;
+        top: 120px;
+        background-color: rgba(40, 41, 38, 0.6);
+        border-radius: 20px;
+        height: 350px;
+        padding-top: 120px;
+        width: 80%;
+        left: 10%;
+        text-align: center;
+    }
+
+    .carousel-item img {
+        object-fit: cover;
+        height: 350px;
+    }
+
+    .carousel-caption h1 {
+        font-size: 28px;
+    }
+
+    .carousel-caption p {
+        margin-top: 10px;
+        font-size: 18px;
+        padding-bottom: 10px;
+    }
+
+    /* Menu */
+    .menu{
+        display: none;
+        position: fixed;
+        background:rgb(0, 0, 62);
+        height: 100vh;
+        width: 80%;
+        top: 0;
+        right: 0px;
+        left: 0;
+       
+        z-index: 800;
+        margin-bottom: 0px;
+        padding-bottom: 0px;
+    }
+    .menu ul{
+     
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 0;
+        margin-top: 100px;
+         
+     }
+     .menu  li {
+         display: block;
+ 
+     }
+     .menu a{
+         display: block;
+         margin-top: 100px;
+         font-size: 36px;
+     }
+
+    .logo {
+        margin-left: 2%;
+    }
+    #weather-info{
+        font-size: 8px;
+        right: 22%;
+        top:28px;
+        z-index: 999;
+    
+    }
+
+    .menu-bar {
+        width: 50px;
+        height: 50px;
+        float: right;
+        margin-right: 10%;
+        margin-top: 1%;
+        display: block;
+        padding: 0px;
+      
+    }
+
+    .menu-bar div {
+        height: 6px;
+        background: rgb(255, 255, 255);
+        margin-top: 6px;
+        border-radius: 3px;
+    }
+ 
+
+    /* Prevision Section */
+    .prevision-section {
+        height: 900px;
+    }
+
+    .prevision-section h2 {
+        margin-left: 5%;
+        margin-top: 80px;
+        font-size: 52px;
+        margin-bottom: 90px;
+    }
+
+    .container-previsions {
+        width: 100%;
+       
+        
+    }
+    .container-previsions-item div{
+       width: 200px;
+       margin-left: 10px;
+       margin-right: 10px;
+       
+    }
+    #central-item{
+        width: 280px;
+    }
+
+    #input-form-city input {
+        padding: 12px 160px;
+        margin-left: 15%;
+    }
+
+    .city-information h1, .city-information span {
+        font-size: 48px;
+        line-height: 48px;
+    }
+
+    /* Hot Zone */
+    .hot-zone {
+        width: 100%;
+        height: 1500px;
+    }
+
+    .hot-zone h1 {
+        margin-top: 80px;
+        margin-left: 20px;
+    }
+
+    .container-hot-zone h6 {
+        width: 25%;
+        margin-top: 10%;
+    }
+
+    /* About Us */
+    .about-us {
+        width: 85%;
+        min-height: 1000px;
+    }
+
+    .container-about-us {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+       
+    }
+
+    .first-image-about{
+        width: 150px;
+    }
+
+    .second-image-about {
+        width: 160px;
+        margin-top: 10px;
+    }
+
+    .third-image-about {
+        width: 150px;
+    }
+
+    .fourth-image-about {
+        width: 160px;
+        margin-top: 20px;
+    }
+
+    .about-image {
+        margin-left: 10%;
+        width: 100%;
+    }
+
+    .about-text {
+        width: 100%;
+        margin-left: 20%;
+    
+        
+    }
+
+    /* Destinations */
+    .destinations {
+        height: 700px;
+    }
+
+    .input {
+        padding: 12px 64px;
+        margin-left: 5%;
+        margin-top: 12%;
+    }
+
+    #btn {
+        float: left;
+        margin-left: 20%;
+    }
+
+    .btn-position {
+        width: 100px;
+        height: 100px;
+        position: absolute;
+        top: 45%;
+        left: 66%;
+    }
+
+    .form {
+        height: 300px;
+        position: relative;
+    }
+
+    .label1 {
+        left: 20%;
+       
+        margin-bottom: 0px;
+        font-size: 14px;
+        position: absolute;
+    }
+
+    .label2 {
+        left: 67%;
+        color: white;
+        font-size: 14px;
+        top: 0%;
+        position: absolute;
+        bottom: 40%;
+    }
+
+    /* Footer */
+    .footer {
+        height: 300px;
+       
+    }
+    .first-footer-part h4{
+        padding-left: 28px;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        border-bottom: 2px solid white;
+    }
+
+    .first-footer-part h4 {
+        margin-left: 15px;
+        font-weight: bold;
+        margin-top: 10%;
+        margin-bottom: 15px;
+    }
+
+    .first-footer-part p {
+        margin-left: 15%;
+        line-height: 18px;
+    }
+
+    .second-footer-part, .third-footer-part {
+        color: white;
+        margin-left: 15%;
+        margin-top: 0%;
+        margin-bottom: 20px;
+    }
+}

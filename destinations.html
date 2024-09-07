@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="style.css?v=5" rel="stylesheet">
+    <!-- leaflet-->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <link rel="stylesheet" href="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <title>Mungweather</title>
+</head>
+    <header class="header">
+        <a href="index.html">
+        <img class="logo" src="images/mungweather.png">
+        </a>
+        
+        <div id="menu">
+            <ul>
+                <li><a href="index.html">Acceuil</a></li>
+                <li><a href="about.html">A Propos De Nous</a></li>
+                <li><a href="destinations.html">Destinations</a></li>  
+                <li><a href="signup.html">Sign Up</a></li>   
+                <li><a href="login.html">Login</a></li>  
+            </ul>
+            <h2 onclick="goback()" id="close-btn">X</h2>
+        
+        </div>
+
+        <p id="weather-info"></p>
+
+        <div onclick="showMenu();"  class="menu-bar">
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+    
+    
+    </header>
+<body>
+  <h2 style="text-align: center; 
+  margin-top: 10%; text-decoration: underline; color: rgb(0,0,62);" >Destinations</h2>
+<!--map-->
+  <div id="map" style="height: 500px;"></div>
+
+    <div class="destinations">
+
+        <div class="form">
+        <form class="formulaire" method="post">
+            <button class="btn-position" name="own-position">Ma Position</button>
+
+            <label class="label1">De Quelle Ville?</label>
+            <input name="from" class="input" id="departure" placeholder="entrer la ville">
+
+            <label class="label2">A Quelle Ville?</label>
+            <input name="to" class="input" id="arrival" placeholder="entrer la ville">
+
+            <button  id="btn" name="find">Trouver</button>
+        
+        </form>
+        </div>
+
+        <table id="table">
+          <tr>
+            <th id="th">Description</th>
+            <th  id="th">Ville de depart</th>
+            <th  id="th">Ville d'arrivee</th>
+          </tr>
+          <tr>
+            <td  >Continent</td>
+            <td id="continent-departure"> </td>
+            <td id="continent-arrival"></td>
+          </tr>
+          <tr>
+            <td>Pays</td>
+            <td id="country-departure"></td>
+            <td id="country-arrival" > </td>
+          </tr>
+          <tr>
+            <td>Long et Lat </td>
+           <td id="long-lat-departure"></td>
+           <td id="long-lat-arrival"> </td>
+          </tr>
+          <tr>
+            <td>Moyens de transport</td>
+            <td colspan="2">
+                <select>
+                    <option>Motocyclette</option>
+                    <option>voiture</option>
+                    <option>A pieds</option>
+                </select>
+            </td>
+            
+          </tr>
+          <tr>
+            <td>Distance entre Miragoane et Port-au- Prince:</td>
+            <td id="distance" colspan="2"> km <span id="duration" > </span></td>
+         
+          </tr>
+
+        </table>
+
+    </div>
+
+    
+
+    <script>
+      function goback() {
+          // Navigate back to the previous page
+          window.history.back();
+      }
+      </script>
+   <!--leaflet-->
+   
+   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+   <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>   
+<script src="fichier.js"></script>
+<script src="weather.js"></script>
+
+</body>
+<footer class="footer">
+  <div class="footer-container">
+  
+
+    <div class="first-footer-part">
+      <h4>Contact</h4>
+      <p>email:info@mungweather.com</p>
+      <p>(+509) 41 96 - 10 53/ 31 56 18 44</p>
+    </div>
+
+    <div class="second-footer-part">
+      <a href="index.html"><p>Acceuil</p></a>
+      <a href="about.html"><p>A Propos</p></a>
+      <a href="destinations.html"><p>Destinations</p></a>
+    </div>
+
+    <div class="third-footer-part">
+      <p>Mentions Légales</p>
+      <p>Politique de Confidentialité</p>
+      <p>Conditions Générales</p>
+    </div>
+  
+  </div>
+  <h6> Tous Droits réservés copyright@2024</h6>
+
+</footer>
+
+</html>
